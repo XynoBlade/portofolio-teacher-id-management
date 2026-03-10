@@ -5,17 +5,17 @@ function hapus($id){
     $db = db();
 
     // 1️⃣ Ambil nama guru dulu
-    $ambil = "SELECT nama_guru FROM guru WHERE id_guru = '$id'";
+    $ambil = "SELECT nama_guru FROM gurus WHERE id_guru = '$id'";
     $result = mysqli_query($db, $ambil);
     $data = mysqli_fetch_assoc($result);
     $nama = $data['nama_guru'];
 
     // 2️⃣ Hapus dari tabel guru
-    $delete = "DELETE FROM guru WHERE id_guru = '$id'";
+    $delete = "DELETE FROM gurus WHERE id_guru = '$id'";
     mysqli_query($db, $delete);
 
     // 3️⃣ Update pelajarans jadi kosong kalau gurunya sama
-    $update = "UPDATE pelajarans 
+    $update = "UPDATE pelajaranss 
                SET guru = 'kosong' 
                WHERE guru = '$nama'";
     mysqli_query($db, $update);

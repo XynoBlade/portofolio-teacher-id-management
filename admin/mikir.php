@@ -28,7 +28,7 @@ function cek_data($manuk){
 }
 
 function show(){
-    $query = "SELECT * FROM guru";
+    $query = "SELECT * FROM gurus";
     //koneksi, command
     $data = mysqli_query(db(), $query);
     return $data;
@@ -37,33 +37,33 @@ function show(){
 function add($nama, $pelajaran){
     $db = db();
 
-    $cek = "SELECT id_guru FROM guru WHERE nama_guru = '$nama'";
+    $cek = "SELECT id_guru FROM gurus WHERE nama_guru = '$nama'";
     $data = mysqli_query($db, $cek);
 
     if(mysqli_num_rows($data) > 0){
-        $update = "UPDATE guru 
+        $update = "UPDATE gurus
                    SET pelajaran = '$pelajaran'
                    WHERE nama_guru = '$nama'";
         mysqli_query($db, $update);
     }else{
-        $insert = "INSERT INTO guru VALUES(NULL, '$nama', '$pelajaran')";
+        $insert = "INSERT INTO gurus VALUES(NULL, '$nama', '$pelajaran')";
         mysqli_query($db, $insert);
     }
 }
 
 function update($id, $nama_baru, $pelajaran) {
     $db = db();
-    $ambil = "SELECT nama_guru FROM guru WHERE id_guru = '$id'";
+    $ambil = "SELECT nama_guru FROM gurus WHERE id_guru = '$id'";
     $result = mysqli_query($db, $ambil);
     $data = mysqli_fetch_assoc($result);
     $nama_lama = $data['nama_guru'];
 
-    $query = "UPDATE guru 
+    $query = "UPDATE gurus 
               SET nama_guru = '$nama_baru', pelajaran = '$pelajaran' 
               WHERE id_guru = '$id'";
     mysqli_query($db, $query);
 
-    $update_pelajaran = "UPDATE pelajarans 
+    $update_pelajaran = "UPDATE pelajaranss 
                          SET guru = '$nama_baru'
                          WHERE guru = '$nama_lama'";
     mysqli_query($db, $update_pelajaran);
@@ -78,16 +78,16 @@ function update($id, $nama_baru, $pelajaran) {
 
 function update_pelajaran($nama, $pelajaran) {
     $db = db();
-    $cek = "SELECT id_pelajaran FROM pelajarans WHERE pelajaran = '$pelajaran'";
+    $cek = "SELECT id_pelajaran FROM pelajaranss WHERE pelajaran = '$pelajaran'";
     $data = mysqli_query($db, $cek);
 
     if (mysqli_num_rows($data) > 0) {
-        $update = "UPDATE pelajarans 
+        $update = "UPDATE pelajaranss 
                    SET guru = '$nama'
                    WHERE pelajaran = '$pelajaran'";
         mysqli_query($db, $update);
     } else {
-        $insert = "INSERT INTO pelajarans (guru, pelajaran)
+        $insert = "INSERT INTO pelajaranss (guru, pelajaran)
                    VALUES ('$nama', '$pelajaran')";
         mysqli_query($db, $insert);
     }
@@ -112,7 +112,7 @@ if (cek_data("dor") == "Kirim"){
 
 function nambah_pelajaran($pelajaran){
     $kosong = "kosong";
-    $query = "INSERT INTO pelajarans VALUES(NULL, '$kosong', '$pelajaran')";
+    $query = "INSERT INTO pelajaranss VALUES(NULL, '$kosong', '$pelajaran')";
     mysqli_query(db(), $query);
     ?>
     <script>
@@ -123,7 +123,7 @@ function nambah_pelajaran($pelajaran){
 }
 
 function show_matpel(){
-    $query = "SELECT * FROM pelajarans";
+    $query = "SELECT * FROM pelajaranss";
     //koneksi, command
     $data = mysqli_query(db(), $query);
     return $data;
@@ -131,7 +131,7 @@ function show_matpel(){
 
 function pelajaran_tersedia(){
     $db = db();
-    $query = "SELECT * FROM pelajarans WHERE guru = 'kosong'";
+    $query = "SELECT * FROM pelajaranss WHERE guru = 'kosong'";
     return mysqli_query($db, $query);
 }
 ?>

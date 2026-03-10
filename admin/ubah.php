@@ -3,7 +3,7 @@ include 'mikir.php';
 
 $id = cek_data("id_guru");
 
-$query = "SELECT * FROM guru WHERE id_guru = '$id'";
+$query = "SELECT * FROM gurus WHERE id_guru = '$id'";
 $data  = mysqli_query(db(), $query);
 $nama  = mysqli_fetch_assoc($data);
 ?>

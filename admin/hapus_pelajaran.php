@@ -5,19 +5,19 @@ function remove($id_pelajaran) {
     $db = db();
 
 
-    $ambil = "SELECT pelajaran FROM pelajarans WHERE id_pelajaran = '$id_pelajaran'";
+    $ambil = "SELECT pelajaran FROM pelajaranss WHERE id_pelajaran = '$id_pelajaran'";
     $result = mysqli_query($db, $ambil);
     $data = mysqli_fetch_assoc($result);
     $nama_pelajaran = $data['pelajaran'];
 
 
-    $update = "UPDATE guru 
+    $update = "UPDATE gurus
                SET pelajaran = 'kosong' 
                WHERE pelajaran = '$nama_pelajaran'";
     mysqli_query($db, $update);
 
     
-    mysqli_query($db, "DELETE FROM pelajarans WHERE id_pelajaran = '$id_pelajaran'");
+    mysqli_query($db, "DELETE FROM pelajaranss WHERE id_pelajaran = '$id_pelajaran'");
 }
 
 $id_pelajaran = cek_data("id_pelajaran");
