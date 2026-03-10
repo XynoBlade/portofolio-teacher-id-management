@@ -12,12 +12,12 @@
 <body>
     <nav>
         <div class="img">
-            <a href="http://localhost/Project%20MID/index.php"><img src="asset/logo.png" alt="logo" id="logo"></a>
+            <a href="http://localhost/Project%20MID%202026/index.php"><img src="asset/logo.png" alt="logo" id="logo"></a>
         </div>
 
         <div class="list">
-        <li><a href="http://localhost/Project%20MID/admin/index.php">Admin</a></li>
-        <li><a href="http://localhost/Project%20MID/index.php">Dashboard</a></li>
+        <li><a href="http://localhost/Project%20MID%202026/admin/index.php">Admin</a></li>
+        <li><a href="http://localhost/Project%20MID%202026/index.php">Dashboard</a></li>
         </div>
     </nav>
 
