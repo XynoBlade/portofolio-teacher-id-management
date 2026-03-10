@@ -93,7 +93,7 @@ function update_pelajaran($nama, $pelajaran) {
     }
 }
 
-if (cek_data("dor") == "Kirim"){
+if (cek_data("dor") == "Tambah Guru"){
     add(cek_data('nama'),cek_data('pelajaran'));
     update_pelajaran(cek_data('nama'),cek_data('pelajaran'));
     ?>
@@ -103,7 +103,7 @@ if (cek_data("dor") == "Kirim"){
     </script>
 <?php
 
-}else if(cek_data('dor') == "Ubah"){
+}else if(cek_data('dor') == "Simpan Perubahan"){
     update(cek_data('id_upt'), cek_data('guruBaru'), cek_data('pelajaran_upt'));
 }else if(cek_data('dor') == "Tambah"){
     nambah_pelajaran(cek_data('datapel'));
